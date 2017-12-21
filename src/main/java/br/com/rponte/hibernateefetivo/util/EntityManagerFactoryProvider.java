@@ -56,6 +56,7 @@ public class EntityManagerFactoryProvider {
 		DataSource dataSource = 
 			    ProxyDataSourceBuilder
 			        .create(actualDataSource())
+			        .name("DATASOURCE_PROXY")
 			        .logQueryBySlf4j(SLF4JLogLevel.INFO)
 			        .build();
 		return dataSource;
