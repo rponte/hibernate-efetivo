@@ -4,11 +4,15 @@ import javax.persistence.EntityManager;
 import javax.persistence.EntityTransaction;
 
 import org.apache.commons.lang3.time.DurationFormatUtils;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import br.com.rponte.hibernateefetivo.model.Produto;
 import br.com.rponte.hibernateefetivo.util.JpaUtils;
 
 public class ImportadorDeProdutos {
+	
+	private static final Logger logger = LoggerFactory.getLogger(ImportadorDeProdutos.class);
 
 	public static void main(String[] args) {
 
@@ -32,7 +36,7 @@ public class ImportadorDeProdutos {
 			Produto produto = new Produto("Produto #" + i);
 			manager.persist(produto);
 			
-			System.out.println("Produto #" + i);
+			logger.info("Produto #" + i);
 		}
 
 		tx.commit();
