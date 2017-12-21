@@ -13,7 +13,7 @@ targetCompatibility = JavaVersion.VERSION_1_8
 /**
  * Setting encoding in Eclipse IDE
  */
-eclipseJdt << {
+eclipseJdt.doLast {
 	ant.propertyfile(file: ".settings/org.eclipse.core.resources.prefs") {
 		ant.entry(key: "eclipse.preferences.version", value: "1")
 		ant.entry(key: "encoding/<project>", value: "utf-8")
@@ -41,13 +41,18 @@ dependencies {
 	/**
 	 * Dependências das classes de produção
 	 */
+	
 	 /* Logging - SLF4J */
     compile "org.slf4j:slf4j-api:${slf4jVersion}"
     compile "org.slf4j:jul-to-slf4j:${slf4jVersion}"
     compile "org.slf4j:jcl-over-slf4j:${slf4jVersion}"
     compile "org.slf4j:slf4j-log4j12:${slf4jVersion}"
+    
     /* Hibernate */
     compile "org.hibernate:hibernate-entitymanager:${hibernateVersion}"
+    compile "net.ttddyy:datasource-proxy:1.4.5"
+    
+    compile "org.apache.commons:commons-lang3:3.7"
     
     /**
 	 * Dependências dos testes automatizados
